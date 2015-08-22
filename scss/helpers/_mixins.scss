@@ -1,0 +1,91 @@
+/* ----------------- Mixins style
+----------------------------------------------------------------------- */
+
+@mixin float-primary {
+	width: 100%;
+	float: left;
+}
+
+/* ----------  vertical align && horizontal align
+------------------------------------------------------------------------------ */
+@mixin centre($axis: "both"){
+    position:absolute;
+    @if $axis == "y"{
+        top:50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    @if $axis == "x"{
+        left:50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    @if $axis == "both"{
+        top:50%;
+        left:50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }   
+}
+
+/*----------  Text Overflow
+------------------------------------------------------------------------------*/
+
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*----------  appearance
+------------------------------------------------------------------------------*/
+
+@mixin appearance {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+}
+
+/* ----------------- Media queris
+----------------------------------------------------------------------- */
+
+@mixin breakpoint ($point) {
+    @if $point == 'mobile' {
+        @media only screen and (min-width: 120px) and (max-width : 767px) { @content; }
+    }
+
+    @else if $point == 'tablet' {
+        @media only screen and (min-width: 768px) and (max-width : 1023px) { @content; }
+    }
+
+    @else if $point == 'desktop' {
+        @media only screen and (min-width: 1024px) { @content; }
+    }
+
+    @else {
+        @media only screen and (min-width: $point) { @content; }
+    }
+}
+
+// Icon sprites
+
+/* @import "sprites.png";
+@mixin sprite-css($name) {
+    @include sprites-sprite($name);
+    height: sprites-sprite-height($name);
+    width: sprites-sprite-width($name);
+    display: inline-block;
+} */
+
+

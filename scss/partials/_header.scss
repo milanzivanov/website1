@@ -1,0 +1,94 @@
+/* ----------------- header
+----------------------------------------------------------------------- */
+
+.header {
+	@include float-primary;
+	line-height: 11px;
+	position: relative;
+	z-index: 99999;
+	background-color: rgba(255, 255, 255, 0.4);
+	margin: 20px 0 20px 0;
+	transition: background .5s ease-in-out, margin .5s ease-in-out;
+	@include breakpoint(mobile) {
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+	.wrapper {
+		position: relative;
+		.logo {
+			display: inline-block;
+			float: left;
+			img {
+				padding: 5px 0 0 0;
+				@include breakpoint (mobile) {
+					display: none;
+				}
+			}
+		}
+		.nav {
+			text-align: center;
+			width: 100%;
+			@include breakpoint(mobile){
+			}
+			ul {
+				display: inline-block;
+				float: right;
+				@include breakpoint(mobile) {
+					position: absolute;
+					background-color: #67b0d1;
+					top: 37px;
+					width: 100%;
+					right: 0;
+					float: left;
+				}
+				li {
+					float: left;
+					@include breakpoint(mobile) {
+						float: none;
+						border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+						&:last-child {
+							border-bottom: none;
+						}
+					}
+					a {
+						display: inline-block;
+						text-decoration: none;
+						color: #444;
+						text-transform: uppercase;
+						font-weight: 700;
+						font-size: 13px;
+						font-family: 'Lato',sans-serif;
+						padding: 25px 20px;
+						&:hover {
+							background-color: rgba(255,255,255,.2);
+						}
+						@include breakpoint(mobile) {
+							display: block;
+						}
+					}
+					.active {
+						background-color: rgba(255,255,255,.2);
+					}											
+				}
+			}
+		}
+	}
+	.menu-button, #menu-button {
+		display: none;
+		@include breakpoint(mobile) {
+			display: inline-block;
+			text-align: center;
+		}	
+	}
+}
+
+.nav-collapse {
+	width: 100%;
+	left: 0;
+	right: 0;
+	position: fixed;
+	top: 0;
+	background-color: #67b0d1;
+	color: #fff;
+	margin: 0;
+	transition: background .5s ease-in-out, margin .5s ease-in-out;
+}
